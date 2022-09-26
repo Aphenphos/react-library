@@ -4,12 +4,12 @@ import { Link, useParams } from 'react-router-dom';
 
 function BookDetail() {
   const { id } = useParams();
-  const { book, loading, error } = useBookDetail(id);
+  const { book, loading, error } = useBookDetail({ id });
 
   if (error)
     return (
       <>
-        <h1>Something went wrong :(</h1> <h2>{error}</h2>
+        <h1>Something went wrong </h1> <h2>{error}</h2>
       </>
     );
 
@@ -18,7 +18,7 @@ function BookDetail() {
   return (
     <>
       <Book book={book} showDetail />
-      <Link></Link>
+      <Link to="/books">Back To Catalog</Link>
     </>
   );
 }
